@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <h1 style="margin-left: 120px; padding-top: 15px; padding-bottom: 10px;">Sign Up</h1>
+
+            <form id="form">
+                <div>
+                    <p> Enter your Name </p>
+                    <div id="name">
+                        <input class="form-dimension" type="text" name="name" placeholder="Enter your name">
+                    </div>
+                </div>
+                <div>
+                    <p>Enter your Email</p>
+                    <div id="email">
+                        <input class="form-dimension" type="email" name="email" placeholder="Enter your email">
+                    </div>
+                </div>
+
+                <div>
+                    <p>Enter your Mobile No.</p>
+                    <div id="mobile">
+                        <input class="form-dimension" type="number" name="number" placeholder="Enter your number">
+                    </div>
+                </div>
+                <div>
+
+                    <div id="form-group">
+                        <input class="submit_button" type="submit" value="Sign Up">
+                    </div>
+                </div>
+
+                <div class="or">Or</div>
+                <div>
+                    <button type="button" class="button-google"><img class="g-img"
+                            src="https://app.pitch.com/3d800eaa-705f-47c5-9f79-ca69833e52b0/images/icons/google.svg"
+                            width="18" alt="">Contine with Google</button>
+                </div>
+                <div>
+                    <button type="button" class="button-apple"><img class="a-img"
+                            src="https://app.pitch.com/static/app/9e7714cb-241d-4527-baf1-71574edcba9d/images/onboarding/apple_logo.svg"
+                            width="18" alt="">Contine with Apple</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <script>
+        var form = document.getElementById('form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the form from submitting traditionally
+
+            var name = document.querySelector('[name="name"]').value;
+            var email = document.querySelector('[name="email"]').value;
+            var number = document.querySelector('[name="number"]').value;
+
+            // Console log the values
+            console.log(name);
+            console.log(email);
+            console.log(number);
+
+            // Check if all fields are filled
+            if (name == "" || email == "" || number == "") {
+                alert("Please fill all the fields");
+                return false; // Do not proceed with the form submission
+            }
+
+            // Save the values in localStorage
+            localStorage.setItem('userName', name);
+            localStorage.setItem('userEmail', email);
+            localStorage.setItem('userNumber', number);
+
+            // Optionally, you can display a success message or redirect the user
+            alert("Data saved in localStorage!");
+        });
+    </script>
+
+</body>
+
+</html>
